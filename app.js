@@ -121,8 +121,9 @@ function showQuestion(item) {
   void questionEl.offsetWidth;
   questionEl.classList.add("question-enter");
   questionEl.textContent = item.question;
-  revealAnswer();
+  hideAnswer();
   copyBtn.disabled = false;
+  setStatus("Question generated. Click Show Answer when you're ready.");
 }
 
 function generateQuestion() {
@@ -137,10 +138,8 @@ function generateQuestion() {
   updateCounter();
 
   if (remainingQuestions.length === 0) {
-    setStatus("That was the last question in the set.");
+    setStatus("That was the last question in the set. Click Show Answer when you're ready.");
     generateBtn.disabled = true;
-  } else {
-    setStatus("Questions will not repeat until reset.");
   }
 }
 
