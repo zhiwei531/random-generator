@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Senior Banquet Random Question Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <p class="eyebrow">DKU Senior Banquet</p>
+        <h1>Random Question Generator</h1>
+        <p class="intro">
+          Draw a trivia prompt from the senior banquet question set. No backend,
+          no setup, just open and use.
+        </p>
+      </header>
+
+      <main class="card">
+        <div class="card-top">
+          <p class="label">Current Question</p>
+          <p class="counter" id="counter">0 / 16 used</p>
+        </div>
+
+        <section class="question-wrap" aria-live="polite">
+          <p class="placeholder" id="placeholder">
+            Click "Generate Question" to start.
+          </p>
+          <blockquote class="question hidden" id="question"></blockquote>
+        </section>
+
+        <div class="actions">
+          <button class="primary" id="generateBtn">Generate Question</button>
+          <button id="copyBtn" disabled>Copy</button>
+          <button id="resetBtn">Reset</button>
+        </div>
+
+        <p class="status" id="status">Questions will not repeat until reset.</p>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
