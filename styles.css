@@ -1,12 +1,14 @@
 :root {
-  --bg: #f6efe4;
-  --panel: rgba(255, 251, 245, 0.82);
-  --panel-border: rgba(98, 57, 32, 0.14);
-  --text: #2d1b12;
-  --muted: #7d6658;
-  --accent: #bc5f2d;
-  --accent-dark: #8f4218;
-  --shadow: 0 24px 80px rgba(74, 39, 18, 0.14);
+  --bg: #07162b;
+  --panel: rgba(10, 24, 46, 0.72);
+  --panel-border: rgba(181, 192, 211, 0.2);
+  --text: #edf3ff;
+  --muted: #b9c4d8;
+  --accent: #cfd7e6;
+  --accent-dark: #97a6c0;
+  --shadow: 0 24px 80px rgba(2, 8, 20, 0.4);
+  --button-surface: rgba(228, 236, 250, 0.1);
+  --button-surface-hover: rgba(228, 236, 250, 0.16);
 }
 
 * {
@@ -19,9 +21,10 @@ body {
   font-family: "Space Grotesk", sans-serif;
   color: var(--text);
   background:
-    radial-gradient(circle at top left, rgba(255, 214, 153, 0.8), transparent 38%),
-    radial-gradient(circle at bottom right, rgba(202, 119, 73, 0.28), transparent 30%),
-    linear-gradient(135deg, #f8f4ec 0%, #f1e4d3 48%, #ead6c0 100%);
+    radial-gradient(circle at top left, rgba(141, 159, 196, 0.2), transparent 32%),
+    radial-gradient(circle at 85% 20%, rgba(223, 230, 242, 0.12), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(84, 109, 157, 0.32), transparent 28%),
+    linear-gradient(140deg, #04101f 0%, #0a1a31 42%, #10274a 100%);
 }
 
 body::before {
@@ -30,8 +33,8 @@ body::before {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+    linear-gradient(rgba(233, 239, 248, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(233, 239, 248, 0.08) 1px, transparent 1px);
   background-size: 30px 30px;
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.22), transparent 70%);
 }
@@ -121,8 +124,8 @@ h1 {
   margin: 24px 0;
   padding: 28px;
   border-radius: 22px;
-  background: rgba(255, 255, 255, 0.52);
-  border: 1px solid rgba(98, 57, 32, 0.1);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(151, 166, 192, 0.22);
 }
 
 .placeholder,
@@ -132,14 +135,38 @@ h1 {
 }
 
 .placeholder {
-  color: var(--muted);
+  color: #66748b;
   font-size: 1.05rem;
 }
 
 .question {
+  color: #162338;
   font-size: clamp(1.55rem, 4vw, 2.5rem);
   line-height: 1.3;
   font-weight: 500;
+}
+
+.answer-panel {
+  margin: -6px 0 24px;
+  padding: 18px 20px;
+  border-radius: 18px;
+  border: 1px solid rgba(181, 192, 211, 0.22);
+  background: linear-gradient(135deg, rgba(227, 234, 246, 0.1), rgba(128, 146, 180, 0.08));
+}
+
+.answer-label {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.74rem;
+  color: var(--accent);
+}
+
+.answer {
+  margin: 0;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
 .hidden {
@@ -159,7 +186,7 @@ button {
   font: inherit;
   font-weight: 700;
   color: var(--text);
-  background: rgba(45, 27, 18, 0.08);
+  background: var(--button-surface);
   cursor: pointer;
   transition:
     transform 180ms ease,
@@ -170,7 +197,7 @@ button {
 
 button:hover:not(:disabled) {
   transform: translateY(-1px);
-  background: rgba(45, 27, 18, 0.13);
+  background: var(--button-surface-hover);
 }
 
 button:disabled {
@@ -179,12 +206,12 @@ button:disabled {
 }
 
 button.primary {
-  color: #fff8f1;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+  color: #081425;
+  background: linear-gradient(135deg, #f0f4fb 0%, #b6c3da 100%);
 }
 
 button.primary:hover:not(:disabled) {
-  background: linear-gradient(135deg, #c96b39 0%, #7a3814 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #cad4e5 100%);
 }
 
 .status {

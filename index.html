@@ -36,8 +36,14 @@
           <blockquote class="question hidden" id="question"></blockquote>
         </section>
 
+        <section class="answer-panel hidden" id="answerPanel" aria-live="polite">
+          <p class="answer-label">Answer</p>
+          <p class="answer" id="answer"></p>
+        </section>
+
         <div class="actions">
           <button class="primary" id="generateBtn">Generate Question</button>
+          <button id="answerBtn" disabled>Show Answer</button>
           <button id="copyBtn" disabled>Copy</button>
           <button id="resetBtn">Reset</button>
         </div>
