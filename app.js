@@ -102,6 +102,17 @@ function hideAnswer() {
   answerBtn.textContent = "Show Answer";
 }
 
+function revealAnswer() {
+  if (!currentItem) {
+    setStatus("Generate a question first.");
+    return;
+  }
+
+  answerEl.textContent = currentItem.answer;
+  answerPanelEl.classList.remove("hidden");
+  answerBtn.textContent = "Hide Answer";
+}
+
 function showQuestion(item) {
   currentItem = item;
   placeholderEl.classList.add("hidden");
@@ -110,8 +121,7 @@ function showQuestion(item) {
   void questionEl.offsetWidth;
   questionEl.classList.add("question-enter");
   questionEl.textContent = item.question;
-  hideAnswer();
-  answerBtn.disabled = false;
+  revealAnswer();
   copyBtn.disabled = false;
 }
 
@@ -149,15 +159,14 @@ async function copyCurrentQuestion() {
 
 function toggleAnswer() {
   if (!currentItem) {
+    setStatus("Generate a question first.");
     return;
   }
 
   const isHidden = answerPanelEl.classList.contains("hidden");
 
   if (isHidden) {
-    answerEl.textContent = currentItem.answer;
-    answerPanelEl.classList.remove("hidden");
-    answerBtn.textContent = "Hide Answer";
+    revealAnswer();
     setStatus("Answer revealed.");
     return;
   }
@@ -170,7 +179,6 @@ function resetGenerator() {
   remainingQuestions = shuffle([...questions]);
   currentItem = null;
   generateBtn.disabled = false;
-  answerBtn.disabled = true;
   copyBtn.disabled = true;
   questionEl.textContent = "";
   questionEl.classList.add("hidden");
@@ -186,3 +194,4 @@ copyBtn.addEventListener("click", copyCurrentQuestion);
 resetBtn.addEventListener("click", resetGenerator);
 
 updateCounter();
+hideAnswer();
